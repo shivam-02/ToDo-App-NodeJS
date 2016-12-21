@@ -92,7 +92,7 @@ app.delete('/todo/:item',function(req,res){
   mongodb.MongoClient.connect(url, function(err, db) {
 
     console.log("Connected correctly to server.");
-    var item=req.params.item.replace("-"," ");
+    var item=req.params.item.replace(/-/g," ");
     deleteItem(db,function(){
 
       items=items.filter(function(todo){
